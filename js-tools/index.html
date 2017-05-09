@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>document</title>
+
+		<script src="js/tools-main.js" ></script>
+		<script src="js/tools-dom-tools.js" ></script>
+		<script src="js/tools-test.js" ></script>
+		<script src="js/tools-creatE.js" ></script>
+		<script src="js/tools-extend.js" ></script>
+		<script src="js/tools-event.js" ></script>
+		
+		<style type="text/css">
+			
+			div{
+				
+				height: 200px;
+				background: red;
+				margin-bottom: 10px;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		<script>
+
+			var $ = $p = $pf;
+
+//			console.log( '(' + $p.trim('  aaa    ') + ')' );	
+
+			var a = $p.creat('section'); 
+			var h = $p.creat('header');
+			var t = $p.creat('footer');
+			var div = $p.creat('div'); 
+			var div1 = $p.creat('div'); 
+			var span = $p.creat('span'); 
+//			a.id = 'warp';
+//			$p.attr( 'a' , '_id' , 'box' );
+			
+//			console.log( $p.attr( a , '_id' ) , a );
+			
+			div.id = 'box';
+			
+			$p.prepend( document.body , a );
+			
+			$p.insertBefore( h , a );
+			
+			$p.insertAfter( t , a );
+			
+			$p.append( h , div );
+			$p.append( h , div1 );
+			$p.append( div , span );
+			
+			var divs = document.querySelectorAll('div');
+			var arr = [];
+			
+			console.log( {}.toString.call( divs ) , {}.toString.call(arr) , {}.toString.call({}) );
+						
+//			console.log($.parentsNode( span ));
+//			console.log( document.parentNode );
+			
+			$.hide( divs , 2000 , function(){
+				console.log( this );
+				console.log(1);
+			});
+			
+			document.onclick = function(ev){
+				
+				console.log( $.ev( ev ) , $.target( ev ) );
+				
+				
+				$.show( divs , 2000 , function(){
+					console.log( this );
+					console.log(2);
+				} );
+				
+			}
+			
+			$.on( divs , 'dblclick', Fn1 );
+			
+			 function Fn1(){
+				alert(1);
+//				console.log($.removeEl( divs ));
+				
+				$.off( divs , 'dblclick', Fn1 );
+				
+			}
+			
+			console.log( $.getEl('div#box') );
+			
+//			document.ondblclick = function(){
+//				
+//				console.log($.removeEl( divs ));
+//			}
+//			
+//			console.log( $.isObject({}) , $.isObject( null ) , $.isObject( div ) , $.isObject([]) , $.isObject(function(){}) );
+			
+			var clone =  $.extend( {a:{} , arr:[1,2,3],obj:{n:1,m:2}} , {a:false,b:3,c:4, arr:[4,5,6],obj:{x:1,y:2,n:100000000}} );
+			
+//			console.log( clone );
+		</script>
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>document</title>
+
+		<script src="js/tools-main.js" ></script>
+		<script src="js/tools-dom-tools.js" ></script>
+		<script src="js/tools-test.js" ></script>
+		<script src="js/tools-creatE.js" ></script>
+		
+		<style type="text/css">
+			
+			div{
+				
+				height: 200px;
+				background: red;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		<script>
+
+			var $ = $p = $pf;
+
+//			console.log( '(' + $p.trim('  aaa    ') + ')' );	
+
+			var a = $p.creat('section'); 
+			var h = $p.creat('header');
+			var t = $p.creat('footer');
+			var div = $p.creat('div'); 
+			var span = $p.creat('span'); 
+//			a.id = 'warp';
+//			$p.attr( 'a' , '_id' , 'box' );
+			
+//			console.log( $p.attr( a , '_id' ) , a );
+
+			$p.prepend( document.body , a );
+			
+			$p.insertBefore( h , a );
+			
+			$p.insertAfter( t , a );
+			
+			$p.append( h , div );
+			$p.append( div , span );
+			
+			var divs = document.querySelectorAll('div');
+			var arr = [];
+//			console.log( {}.toString.call( divs ) , {}.toString.call(arr) , {}.toString.call({}) );
+						
+//			console.log($.parentsNode( span ));
+//			console.log( document.parentNode );
+			
+			$.hide( divs , 2000 , function(){
+				
+				alert(1);
+			});
+			
+			document.onclick = function(){
+				
+				$.show( divs , 2000 , function(){
+					
+					alert(2);
+				} );
+			}
+
+		</script>
+	</body>
+</html>

@@ -96,7 +96,7 @@
 	}
 	
 	//隐藏元素、元素集合,支持过渡（时间单位为ms）和回调
-	$.hide = function( el , time , callBack ){
+	$.hide = function( el , callBack , time ){
 		
 		var l = arguments.length;
 		var elLen = el.length;
@@ -169,11 +169,11 @@
 	}
 	
 	//显示元素、元素集合,支持过渡（时间单位为ms）和回调
-	$.show = function( el , time , callBack ){
+	$.show = function( el , callBack , time ){
 		
 		var l = arguments.length;
 		var elLen = el.length;		
-			
+		time = time || 0;	
 		if( {}.toString.call( el ) ===  '[object NodeList]' ){
 			
 			for (var i = 0; i < el.length; i++) {
@@ -224,6 +224,24 @@
 		}
 		return el;
 			
+	}
+	
+	//获取css计算属性
+	$.getstyle = function( el , style ){
+		
+		return window.getComputedStyle(el)[style];
+
+	}
+	//获取offsetheight，包含padding和边框
+	$.offHeight = function(el){
+		
+		return el.offsetHeight;
+	}
+	
+	//获取元素高度，不包含padding
+	$.height = function(el){
+		
+		return el.clientHeight - parseInt($.getstyle(el , 'paddingTop')) - parseInt($.getstyle(el , 'paddingBottom'));
 	}
 	
 })( $pf );

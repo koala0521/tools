@@ -12,10 +12,19 @@
 		<style type="text/css">
 			
 			div{
-				
+				box-sizing: border-box;
 				height: 200px;
 				background: red;
+				padding: 10px;
+				border: 5px solid #aaa;
+				overflow-y: scroll;
 			}
+			
+			span{
+				display: inline-block;
+				height: 500px;
+			}
+			
 			
 		</style>
 		
@@ -53,18 +62,28 @@
 //			console.log($.parentsNode( span ));
 //			console.log( document.parentNode );
 			
-			$.hide( divs , 2000 , function(){
-				
-				alert(1);
-			});
+//			$.hide( divs , function(){
+//				
+//				alert(1);
+//			});
 			
 			document.onclick = function(){
 				
-				$.show( divs , 2000 , function(){
+				$.show( divs , function(){
 					
-					alert(2);
+					var h = $.height(divs[0]);
 				} );
 			}
+			
+				$.show( divs , function(){
+					
+//					var h = $.offHeight(divs[0]);
+//					console.log( getComputedStyle( divs[0]).height );
+//					console.log( h );
+
+					console.log( $.height(divs[0]) );
+			
+				} );
 
 		</script>
 	</body>

@@ -12,17 +12,22 @@
 		<style type="text/css">
 			
 			div{
+				
 				box-sizing: border-box;
 				height: 200px;
 				background: red;
-				padding: 10px;
+				/*padding: 10px;*/
 				border: 5px solid #aaa;
 				overflow-y: scroll;
 			}
 			
-			span{
-				display: inline-block;
+			h3{
+				/*display: inline-block;*/
 				height: 500px;
+				width: 100%;
+				background: #fff;
+				overflow: hidden;
+				margin: 0;
 			}
 			
 			
@@ -41,6 +46,7 @@
 			var t = $p.creat('footer');
 			var div = $p.creat('div'); 
 			var span = $p.creat('span'); 
+			var h3 = $.creat('h3');
 //			a.id = 'warp';
 //			$p.attr( 'a' , '_id' , 'box' );
 			
@@ -53,7 +59,7 @@
 			$p.insertAfter( t , a );
 			
 			$p.append( h , div );
-			$p.append( div , span );
+			$p.append( div , h3 );
 			
 			var divs = document.querySelectorAll('div');
 			var arr = [];
@@ -75,15 +81,28 @@
 				} );
 			}
 			
-				$.show( divs , function(){
-					
+			$.show( divs , function(){
+				
 //					var h = $.offHeight(divs[0]);
 //					console.log( getComputedStyle( divs[0]).height );
 //					console.log( h );
-
-					console.log( $.height(divs[0]) );
+//				console.log( parseInt($.getstyle(divs[0] , 'paddingTop'))  );
+//				console.log(divs[0].scrollHeight , divs[0].clientHeight , divs[0].scrollTop );
+				console.log( $.scrollHeight(divs[0]) );
+		
+			} );
 			
-				} );
+							
+			divs[0].onscroll = function(){
+				
+				console.log(divs[0].scrollHeight , divs[0].clientHeight , this.scrollTop );
+			}
+			
+			function fn( a ){
+				alert(a);
+			}
+
+			document.onclick = fn.bind( document , 1 );
 
 		</script>
 	</body>

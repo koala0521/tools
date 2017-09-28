@@ -238,10 +238,22 @@
 		return el.offsetHeight;
 	}
 	
-	//获取元素高度，不包含padding
-	$.height = function(el){
+	$.offWidth = function(){
+		
+		return el.offsetWidth;
+	}
+	
+	
+	//获取元素高度，不包含padding和边框
+	$.innerHeight = function(el){
 		
 		return el.clientHeight - parseInt($.getstyle(el , 'paddingTop')) - parseInt($.getstyle(el , 'paddingBottom'));
 	}
+	
+	$.innerWidth = function(el){
+		
+		return el.clientWidth - parseInt($.getstyle(el , 'paddingLeft')) - parseInt($.getstyle(el , 'paddingRight'));
+	}	
+	
 	
 })( $pf );

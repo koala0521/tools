@@ -20,7 +20,7 @@
     }
 
     //判断对象
-    pf.isObject = function() {
+    pf.isObject = function(arg) {
         var str;
         if (typeof arg !== 'object') {
             return false;
@@ -29,5 +29,18 @@
         return str === '[object Object]';
     }
 
+    //检测空对象
+    pf.isEmatyObjset = function(arg) {
+        var len = 0;
+        if (typeof arg !== 'object') {
+            throw new Error('"arg",is not a Object');
+        }
+        for (var key in arg) {
+            if (object.hasOwnProperty(key)) {
+                len++;
+            }
+        }
+        return !!len;
+    }
 
 })($pf);

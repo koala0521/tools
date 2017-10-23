@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <title>document</title>
 
-    <script src="dist/js/all.min.js?rev=@@hash"></script>
+    <script src="dist/js/all.min.js?rev=39552ae59c58aae0638e459c7a7ce593"></script>
 
     <style type="text/css">
         div {
@@ -66,6 +66,9 @@
         //				
         //				alert(1);
         //			});
+        console.log($.isArray({}));
+        console.log($.isObject(null));
+        console.log($.isEmatyObjset({}));
 
         document.onclick = function() {
 
@@ -74,18 +77,6 @@
                 var h = $.height(divs[0]);
             });
         }
-
-        $.show(divs, function() {
-
-            //					var h = $.offHeight(divs[0]);
-            //					console.log( getComputedStyle( divs[0]).height );
-            //					console.log( h );
-            //				console.log( parseInt($.getstyle(divs[0] , 'paddingTop'))  );
-            //				console.log(divs[0].scrollHeight , divs[0].clientHeight , divs[0].scrollTop );
-            console.log($.scrollHeight(divs[0]));
-
-        });
-
 
         divs[0].onscroll = function() {
 

@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <title>document</title>
 
-    <script src="dist/js/all.min.js?rev=39552ae59c58aae0638e459c7a7ce593"></script>
+    <script src="dist/js/all.min.js?rev=333377fa056f5e5009746969057ddb77"></script>
 
     <style type="text/css">
         div {
@@ -36,11 +36,19 @@
         //			console.log( '(' + $p.trim('  aaa    ') + ')' );	
 
         var a = $p.creat('section');
-        var h = $p.creat('header');
+        var h = $p.creat('header', 'aaa bbb ccc', {
+            id: 'one',
+            index: 1
+
+        });
         var t = $p.creat('footer');
         var div = $p.creat('div');
         var span = $p.creat('span');
-        var h3 = $.creat('h3');
+        var h3 = $.creat('h3', 'title', {
+            innerHTML: '我是标题~~~~~~'
+        });
+        console.log({}.toString.call(h));
+
         //			a.id = 'warp';
         //			$p.attr( 'a' , '_id' , 'box' );
 
@@ -56,6 +64,7 @@
         $p.append(div, h3);
 
         var divs = document.querySelectorAll('div');
+        console.log({}.toString.call(divs));
         var arr = [];
         //			console.log( {}.toString.call( divs ) , {}.toString.call(arr) , {}.toString.call({}) );
 

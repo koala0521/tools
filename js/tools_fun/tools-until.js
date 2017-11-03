@@ -65,7 +65,7 @@
             target = arguments[i] || {};
             i++;
         }
-        if (typeof target !== 'object' && !Elf.utils.isFunction(target)) {
+        if (typeof target !== 'object' && !pf.isFunction(target)) {
 
             target = {};
         }
